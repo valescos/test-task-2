@@ -9,7 +9,7 @@
       >
         <div
           v-show="isModalOpened"
-          :class="`absolute flex flex-col gap-2 p-6 h-[30%] w-[80%] sm:h-[336px] sm:w-[400px] top-[20%] left-[50%] -translate-x-[50%] md:translate-x-0
+          :class="`absolute flex flex-col gap-2 p-6 h-[35%] w-[80%] sm:h-[336px] sm:w-[400px] top-[20%] left-[50%] -translate-x-[50%] md:translate-x-0
           ${calculatePosition(
             index
           )} bg-white z-50 border-[1px] border-[#f4f9fc] rounded-md shadow-xl overflow-y-scroll`"
@@ -52,7 +52,7 @@
       </div>
       <button
         @click="isModalOpened = !isModalOpened"
-        class="absolute -right-[75%] md:-right-[65%] top-[60%]"
+        class="absolute -right-[75%] md:-right-[65%] top-[60%] scale-75 sm:scale-100"
         v-show="data.hidden.length !== 0"
       >
         <svg
