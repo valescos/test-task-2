@@ -1,11 +1,7 @@
 <template>
   <div class="flex flex-col gap-2 items-center" :title="model">
     <div class="relative">
-      <img
-        class="w-[2.5rem] md:w-[5rem]"
-        :src="'/src/assets/' + img"
-        :alt="model"
-      />
+      <img class="w-[2.5rem] md:w-[5rem]" :src="img" :alt="model" />
       <div
         v-show="isModalOpened"
         class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.05)] z-40"
@@ -47,7 +43,7 @@
             </svg>
             <img
               class="w-[2.5rem]"
-              :src="'/src/assets/' + scrollitem.img"
+              :src="scrollitem.img"
               :alt="scrollitem.model"
             />
             <p>{{ scrollitem.model }}</p>

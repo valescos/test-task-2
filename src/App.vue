@@ -68,6 +68,13 @@ import ItemCompare from "./components/ItemCompare.vue";
 import ItemFeature from "./components/ItemFeature.vue";
 import { phone } from "./types/phone";
 
+import AppleiPhone12 from "./assets/Apple-iPhone-12.png";
+import AppleiPhoneXr from "./assets/Apple-iPhone-Xr.png";
+import Realme8Pro from "./assets/Realme-8-Pro.png";
+import SamsungGalaxyA72 from "./assets/Samsung-Galaxy-A72.png";
+import SamsungGalaxyS21 from "./assets/Samsung-Galaxy-S21.png";
+import XiaomiMi11Lite from "./assets/Xiaomi-Mi-11-Lite.png";
+
 export default {
   components: { Header, ItemCompare, ItemFeature },
   data() {
@@ -75,7 +82,7 @@ export default {
       PHONES: [
         {
           model: "Apple iPhone 12",
-          img: "Apple-iPhone-12.png",
+          img: AppleiPhone12,
           manufacturer: "Apple",
           year: 2020,
           diagonal: "6,1",
@@ -89,7 +96,7 @@ export default {
         },
         {
           model: "Xiaomi Mi 11 Lite",
-          img: "Xiaomi-Mi-11-Lite.png",
+          img: XiaomiMi11Lite,
           manufacturer: "Xiaomi",
           year: 2021,
           diagonal: "6,55",
@@ -103,7 +110,7 @@ export default {
         },
         {
           model: "Samsung Galaxy A72",
-          img: "Samsung-Galaxy-A72.png",
+          img: SamsungGalaxyA72,
           manufacturer: "Samsung",
           year: 2021,
           diagonal: "6,7",
@@ -117,7 +124,7 @@ export default {
         },
         {
           model: "Samsung Galaxy S21",
-          img: "Samsung-Galaxy-S21.png",
+          img: SamsungGalaxyS21,
           manufacturer: "Samsung",
           year: 2021,
           diagonal: "6,2",
@@ -131,7 +138,7 @@ export default {
         },
         {
           model: "Apple iPhone Xr",
-          img: "Apple-iPhone-Xr.png",
+          img: AppleiPhoneXr,
           manufacturer: "Apple",
           year: 2021,
           diagonal: "6,1",
@@ -145,7 +152,7 @@ export default {
         },
         {
           model: "Realme 8 Pro",
-          img: "Realme-8-Pro.png",
+          img: Realme8Pro,
           manufacturer: "OPPO",
           year: 2021,
           diagonal: "6,4",
