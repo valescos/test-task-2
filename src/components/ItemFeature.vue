@@ -53,14 +53,14 @@
 </template>
 
 <script lang="ts">
-import { phone } from "../types/phone";
-
 export default {
   props: ["title", "data", "showDiference"],
   name: "ItemFeature",
   methods: {
     compareItems() {
-      return this.data.every((item: phone) => item === this.data[0]);
+      return this.data.every(
+        (item: string[] | number[] | boolean[]) => item === this.data[0]
+      );
     },
   },
 };

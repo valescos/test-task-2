@@ -15,7 +15,11 @@
       :showDiference="showDiference"
       :data="isolateFeatureData('manufacturer')"
     />
-    <ItemFeature title="год релиза" :data="isolateFeatureData('year')" />
+    <ItemFeature
+      title="год релиза"
+      :showDiference="showDiference"
+      :data="isolateFeatureData('year')"
+    />
     <ItemFeature
       title="Диагональ экрана (дюйм)"
       :showDiference="showDiference"
