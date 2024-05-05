@@ -158,7 +158,7 @@ export default {
           model: "Realme 8 Pro",
           img: Realme8Pro,
           manufacturer: "OPPO",
-          year: 2021,
+          year: 2022,
           diagonal: "6,4",
           country: "Китай",
           meomory: "128 GB",
