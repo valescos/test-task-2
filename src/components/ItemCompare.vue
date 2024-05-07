@@ -48,11 +48,22 @@
 
 <script lang="ts">
 import SwitchMenu from "./SwitchMenu.vue";
-import { phone } from "../types/phone";
+import { PropType } from "vue";
+import { phone, filteredPhones } from "../types/phone";
 
 export default {
   name: "ItemCompare",
   components: { SwitchMenu },
+  props: {
+    data: {
+      required: true,
+      type: Object as PropType<filteredPhones>,
+    },
+    currentItem: {
+      required: true,
+      type: Number as PropType<number>,
+    },
+  },
   data() {
     return {
       showItems: [2, 3, 4, 5, 6],
@@ -69,7 +80,6 @@ export default {
       this.$emit("switchItems", item1, item2);
     },
   },
-  props: ["data", "currentItem"],
 };
 </script>
 

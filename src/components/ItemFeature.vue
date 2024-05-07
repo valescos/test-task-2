@@ -53,13 +53,28 @@
 </template>
 
 <script lang="ts">
+import { PropType } from "vue";
+
 export default {
-  props: ["title", "data", "showDiference"],
   name: "ItemFeature",
+  props: {
+    title: {
+      required: true,
+      type: String as PropType<string>,
+    },
+    data: {
+      required: true,
+      type: Array as PropType<(string | number | boolean)[]>,
+    },
+    showDiference: {
+      required: true,
+      type: Boolean as PropType<boolean>,
+    },
+  },
   methods: {
-    compareItems() {
+    compareItems(): boolean {
       return this.data.every(
-        (item: string[] | number[] | boolean[]) => item === this.data[0]
+        (item: string | number | boolean) => item === this.data[0]
       );
     },
   },

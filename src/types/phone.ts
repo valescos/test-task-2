@@ -1,5 +1,4 @@
-export interface phone {
-  [key: string]: string | number | boolean;
+export type phone = {
   model: string;
   img: string;
   manufacturer: string;
@@ -12,4 +11,11 @@ export interface phone {
   ESIM: boolean;
   wirelesscharger: boolean;
   price: string;
-}
+
+  [key: string]: string | number | boolean;
+};
+
+export type filteredPhones = {
+  shown: phone[];
+  hidden: phone[];
+};

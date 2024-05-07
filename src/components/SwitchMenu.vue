@@ -5,16 +5,17 @@
       <div
         v-show="isModalOpened"
         class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.05)] z-40"
-        @click.self="isModalOpened = !isModalOpened"
+        @click.self="handleOverlayClick"
       >
         <div
           v-show="isModalOpened"
-          :class="`absolute flex flex-col gap-2 p-6 h-[35%] w-[80%] sm:h-[336px] sm:w-[400px] top-[20%] left-[50%] -translate-x-[50%] md:translate-x-0
+          :class="`absolute flex flex-col gap-2 p-6 max-h-[35%] w-[80%] sm:max-h-[360px] sm:w-[400px] top-[20%] sm:top-[38%] left-[50%] -translate-x-[50%] md:translate-x-0
           ${calculatePosition(
             index
           )} bg-white z-50 border-[1px] border-[#f4f9fc] rounded-md shadow-xl overflow-y-scroll`"
         >
           <input
+            v-show="data.shown.length < 3"
             v-model="filterquary"
             type="text.toString()"
             placeholder="Поиск"
@@ -79,19 +80,46 @@
 </template>
 
 <script lang="ts">
-import { phone } from "../types/phone";
+import { phone, filteredPhones } from "../types/phone";
+import { PropType } from "vue";
 
 export default {
-  props: ["data", "img", "model", "item", "index"],
   name: "SwitchMenu",
+  props: {
+    data: {
+      required: true,
+      type: Object as PropType<filteredPhones>,
+    },
+    img: {
+      required: true,
+      type: String as PropType<string>,
+    },
+    model: {
+      required: true,
+      type: String as PropType<string>,
+    },
+    item: {
+      required: true,
+      type: Object as PropType<phone>,
+    },
+    index: {
+      required: true,
+      type: Number as PropType<number>,
+    },
+  },
   methods: {
     filterSerch(data: phone[], value: string) {
       return data.filter((item) =>
         item.model.toLowerCase().includes(value.toLowerCase())
       );
     },
+    handleOverlayClick() {
+      this.isModalOpened = !this.isModalOpened;
+      this.filterquary = "";
+    },
     handleModalClick(item1: phone, item2: phone) {
       this.$emit("switchItems", item1, item2);
+      this.filterquary = "";
       this.isModalOpened = !this.isModalOpened;
     },
     calculatePosition(index: number): string {
