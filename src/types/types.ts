@@ -19,3 +19,8 @@ export type filteredPhones = {
   shown: phone[];
   hidden: phone[];
 };
+
+export type phoneFeature = {
+  name: string;
+  translation: string;
+};

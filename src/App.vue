@@ -11,54 +11,10 @@
   />
   <div class="bg-[#f4f9fc] pb-12">
     <ItemFeature
-      title="Производитель"
+      v-for="feature in PHONE_FEATURES"
+      :title="feature.translation"
       :showDiference="showDiference"
-      :data="isolateFeatureData('manufacturer')"
-    />
-    <ItemFeature
-      title="год релиза"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('year')"
-    />
-    <ItemFeature
-      title="Диагональ экрана (дюйм)"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('diagonal')"
-    />
-    <ItemFeature
-      title="Страна-производитель"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('country')"
-    />
-    <ItemFeature
-      title="Объем памяти"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('meomory')"
-    />
-    <ItemFeature
-      title="Частота обновления экрана"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('refreshrate')"
-    />
-    <ItemFeature
-      title="NFC"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('NFC')"
-    />
-    <ItemFeature
-      title="Поддержка eSIM"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('ESIM')"
-    />
-    <ItemFeature
-      title="Поддержка беспроводной зарядки"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('wirelesscharger')"
-    />
-    <ItemFeature
-      title="Стоимость"
-      :showDiference="showDiference"
-      :data="isolateFeatureData('price')"
+      :data="isolateFeatureData(`${feature.name}`)"
     />
     <hr
       class="w-[90%] md:w-[80%] lg:[w-70%] m-auto border-[1px] border-t-[#CDCFD2]"
@@ -70,14 +26,15 @@
 import Header from "./components/Header.vue";
 import ItemCompare from "./components/ItemCompare.vue";
 import ItemFeature from "./components/ItemFeature.vue";
-import { phone } from "./types/phone";
-import { PHONES } from "./data/db.ts";
+import { phone } from "./types/types.ts";
+import { PHONES, PHONE_FEATURES } from "./data/db.ts";
 
 export default {
   components: { Header, ItemCompare, ItemFeature },
   data() {
     return {
-      PHONES: PHONES,
+      PHONE_FEATURES,
+      PHONES,
       currentItem: 3,
       showDiference: false,
     };

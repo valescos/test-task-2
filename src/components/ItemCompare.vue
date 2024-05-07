@@ -49,7 +49,7 @@
 <script lang="ts">
 import SwitchMenu from "./SwitchMenu.vue";
 import { PropType } from "vue";
-import { phone, filteredPhones } from "../types/phone";
+import { phone, filteredPhones } from "../types/types";
 
 export default {
   name: "ItemCompare",

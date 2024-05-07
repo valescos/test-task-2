@@ -91,3 +91,46 @@ export const PHONES = [
     price: "19990 ₽",
   },
 ];
+
+export const PHONE_FEATURES = [
+  {
+    name: "manufacturer",
+    translation: "Производитель",
+  },
+  {
+    name: "year",
+    translation: "год релиза",
+  },
+  {
+    name: "diagonal",
+    translation: "Диагональ экрана (дюйм)",
+  },
+  {
+    name: "country",
+    translation: "Страна-производитель",
+  },
+  {
+    name: "meomory",
+    translation: "Объем памяти",
+  },
+  {
+    name: "refreshrate",
+    translation: "Частота обновления экрана",
+  },
+  {
+    name: "NFC",
+    translation: "NFC",
+  },
+  {
+    name: "ESIM",
+    translation: "Поддержка eSIM",
+  },
+  {
+    name: "wirelesscharger",
+    translation: "Поддержка беспроводной зарядки",
+  },
+  {
+    name: "price",
+    translation: "Стоимость",
+  },
+];

@@ -80,7 +80,7 @@
 </template>
 
 <script lang="ts">
-import { phone, filteredPhones } from "../types/phone";
+import { phone, filteredPhones } from "../types/types";
 import { PropType } from "vue";
 
 export default {
