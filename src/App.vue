@@ -9,9 +9,7 @@
       :title="feature.translation"
       :data="store.isolateFeatureData(`${feature.name}`)"
     />
-    <hr
-      class="w-[90%] md:w-[80%] lg:[w-70%] m-auto border-[1px] border-t-[#CDCFD2]"
-    />
+    <hr class="w-[90%] md:w-[80%] lg:[w-70%] m-auto border-t-[#CDCFD2]" />
   </div>
 </template>
 

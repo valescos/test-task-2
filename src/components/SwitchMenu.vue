@@ -1,7 +1,6 @@
 <template>
-  <div class="flex flex-col gap-2 items-center" :title="model">
-    <div class="relative">
-      <img class="w-[2.2rem] md:w-[4rem]" :src="img" :alt="model" />
+  <div class="relative flex flex-col items-center" :title="model">
+    <div>
       <div
         v-show="isModalOpened"
         class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.05)] z-40"
@@ -51,9 +50,19 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="relative flex flex-col items-center w-full">
+      <img
+        class="w-[2.2rem] md:w-[3rem] xl:w-[4rem] transition-all"
+        :src="img"
+        :alt="model"
+      />
+      <p class="text-[12px] md:text-sm lg:text-lg text-center pt-2">
+        {{ model }}
+      </p>
       <button
         @click="isModalOpened = !isModalOpened"
-        class="absolute -right-[75%] md:-right-[45%] top-[60%] scale-75 sm:scale-100"
+        class="lg:absolute top-[4rem] -right-2 xl:right-0 2xl:right-8 scale-75 sm:scale-100 transition-all"
         v-show="data.hidden.length !== 0"
       >
         <svg
@@ -73,9 +82,6 @@
         </svg>
       </button>
     </div>
-    <p class="text-[12px] md:text-sm lg:text-lg text-center">
-      {{ model }}
-    </p>
   </div>
 </template>
 
