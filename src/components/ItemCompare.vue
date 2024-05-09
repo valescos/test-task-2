@@ -9,8 +9,8 @@
         <span
           v-for="item in showItems"
           class="cursor-pointer"
-          @click="handleChoseCurrentItem(item)"
-          :class="{ underline: currentItem === item }"
+          @click="store.setCurrentItem(item)"
+          :class="{ underline: store.shownItemsNumber === item }"
           >{{ item }}</span
         >
       </div>
@@ -22,7 +22,11 @@
         class="absolute w-full md:w-auto justify-center md:justify-start -top-10 md:relative md:top-0 flex gap-2 basis-[75px] md:basis-[200px] shrink-0 grow-0"
         title="Показать различия"
       >
-        <input type="checkbox" id="compare_items" @change="handleChange" />
+        <input
+          type="checkbox"
+          id="compare_items"
+          @change="store.togleShowDifference"
+        />
         <label
           for="compare_items"
           class="text-sm md:text-[16px] text-[#0D5ADC] line-clamp-1"
@@ -34,7 +38,6 @@
         class="basis-[16%] grow-0 flex flex-col gap-2 self-start"
       >
         <SwitchMenu
-          @switchItems="passSwitchItems"
           :index="index"
           :img="item.img"
           :model="item.model"
@@ -49,7 +52,8 @@
 <script lang="ts">
 import SwitchMenu from "./SwitchMenu.vue";
 import { PropType } from "vue";
-import { phone, filteredPhones } from "../types/types";
+import { filteredPhones } from "../types/types";
+import { useStore } from "../stores/store";
 
 export default {
   name: "ItemCompare",
@@ -59,26 +63,12 @@ export default {
       required: true,
       type: Object as PropType<filteredPhones>,
     },
-    currentItem: {
-      required: true,
-      type: Number as PropType<number>,
-    },
   },
   data() {
     return {
+      store: useStore(),
       showItems: [2, 3, 4, 5, 6],
     };
-  },
-  methods: {
-    handleChoseCurrentItem(item: number) {
-      this.$emit("setItem", item);
-    },
-    handleChange() {
-      this.$emit("togleFilter");
-    },
-    passSwitchItems(item1: phone, item2: phone) {
-      this.$emit("switchItems", item1, item2);
-    },
   },
 };
 </script>

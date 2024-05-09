@@ -82,9 +82,17 @@
 <script lang="ts">
 import { phone, filteredPhones } from "../types/types";
 import { PropType } from "vue";
+import { useStore } from "../stores/store";
 
 export default {
   name: "SwitchMenu",
+  data() {
+    return {
+      isModalOpened: false,
+      filterquary: "",
+      store: useStore(),
+    };
+  },
   props: {
     data: {
       required: true,
@@ -118,7 +126,7 @@ export default {
       this.filterquary = "";
     },
     handleModalClick(item1: phone, item2: phone) {
-      this.$emit("switchItems", item1, item2);
+      this.store.switchItems(item1, item2);
       this.filterquary = "";
       this.isModalOpened = !this.isModalOpened;
     },
@@ -171,16 +179,16 @@ export default {
       return "md:left-[50%]";
     },
   },
-  data() {
-    return {
-      isModalOpened: false,
-      filterquary: "",
-    };
-  },
 };
 </script>
 
 <style scoped>
+@-moz-document url-prefix() {
+  * {
+    scrollbar-color: #e3e3e3 white;
+    scrollbar-width: auto;
+  }
+}
 ::-webkit-scrollbar {
   width: 1.2rem;
 }

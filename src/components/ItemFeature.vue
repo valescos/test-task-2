@@ -1,6 +1,6 @@
 <template>
   <div
-    v-show="!showDiference || (showDiference && !compareItems())"
+    v-show="!store.showDiference || (store.showDiference && !compareItems())"
     :title="title"
     class="relative py-8 w-[90%] md:w-[80%] lg:[w-70%] m-auto border-t-[1px] border-[#CDCFD2] flex justify-evenly md:justify-between items-center gap-4 h-[6rem]"
   >
@@ -54,9 +54,15 @@
 
 <script lang="ts">
 import { PropType } from "vue";
+import { useStore } from "../stores/store";
 
 export default {
   name: "ItemFeature",
+  data() {
+    return {
+      store: useStore(),
+    };
+  },
   props: {
     title: {
       required: true,
@@ -65,10 +71,6 @@ export default {
     data: {
       required: true,
       type: Array as PropType<(string | number | boolean)[]>,
-    },
-    showDiference: {
-      required: true,
-      type: Boolean as PropType<boolean>,
     },
   },
   methods: {
