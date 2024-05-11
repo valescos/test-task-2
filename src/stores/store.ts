@@ -8,6 +8,8 @@ export const useStore = defineStore("phonesStore", {
     phones: PHONES,
     features: PHONE_FEATURES,
     showDiference: false,
+    openedModalIndex: -1,
+    filterquary: "",
   }),
   getters: {
     filteredData(): filteredPhones {
