@@ -7,13 +7,16 @@
     >
       <div
         v-show="store.openedModalIndex === index"
-        :class="`absolute flex flex-col gap-2 p-6 max-h-[35%] w-[80%] sm:max-h-[360px] sm:w-[400px] top-[20%] sm:top-[38%] left-[50%] -translate-x-[50%] md:translate-x-0
-          ${calculatePosition(
-            index
-          )} bg-white z-50 border-[1px] border-[#f4f9fc] rounded-md shadow-xl overflow-y-scroll`"
+        :class="`fixed top-[40%] left-[50%] -translate-x-[50%] w-[80%] sm:w-[60%] px-auto max-h-[326px] md:hidden flex flex-col gap-2 p-6 bg-white z-50 border-[1px] border-[#f4f9fc] rounded-md shadow-xl overflow-y-scroll`"
       >
         <ModalPicker :item="item" />
       </div>
+    </div>
+    <div
+      v-show="store.openedModalIndex === index"
+      :class="`hidden md:flex absolute top-[65%] max-h-[326px] md:max-h-[426px] md:w-[286px]  flex-col gap-2 p-6 bg-white z-50 border-[1px] border-[#f4f9fc] rounded-md shadow-xl overflow-y-scroll`"
+    >
+      <ModalPicker :item="item" />
     </div>
     <div class="relative flex flex-col items-center w-full">
       <img
@@ -94,54 +97,6 @@ export default {
     },
     handleSwitchMenuClick(index: number) {
       this.store.openedModalIndex = index;
-    },
-    calculatePosition(index: number): string {
-      if (this.data.shown.length === 6) return "";
-      if (this.data.shown.length === 5) {
-        switch (index) {
-          case 0:
-            return "md:left-[15%]";
-          case 1:
-            return "md:left-[30%]";
-          case 2:
-            return "md:left-[45%]";
-          case 3:
-            return "md:left-[60%]";
-          case 4:
-            return "md:left-[75%]";
-        }
-      }
-      if (this.data.shown.length === 4) {
-        switch (index) {
-          case 0:
-            return "md:left-[20%]";
-          case 1:
-            return "md:left-[35%]";
-          case 2:
-            return "md:left-[55%]";
-          case 3:
-            return "md:left-[75%]";
-        }
-      }
-      if (this.data.shown.length === 3) {
-        switch (index) {
-          case 0:
-            return "md:left-[25%]";
-          case 1:
-            return "md:left-[50%]";
-          case 2:
-            return "md:left-[75%]";
-        }
-      }
-      if (this.data.shown.length === 2) {
-        switch (index) {
-          case 0:
-            return "md:left-[40%]";
-          case 1:
-            return "md:left-[75%]";
-        }
-      }
-      return "md:left-[50%]";
     },
   },
 };

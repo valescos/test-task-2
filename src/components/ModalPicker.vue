@@ -13,8 +13,10 @@
     )"
     @click="handleModalClick(scrollitem, item)"
     class="flex gap-4 items-center hover:bg-gray-100 transition-all cursor-pointer p-2 rounded-md"
+    :title="scrollitem.model"
   >
     <svg
+      class="shrink-0"
       width="20"
       height="20"
       viewBox="0 0 20 20"
@@ -30,8 +32,12 @@
         fill="#36935B"
       />
     </svg>
-    <img class="w-[2.5rem]" :src="scrollitem.img" :alt="scrollitem.model" />
-    <p>{{ scrollitem.model }}</p>
+    <img
+      class="w-[2rem] md:w-[2.6rem] xl:w-[3.2rem] transition-all"
+      :src="scrollitem.img"
+      :alt="scrollitem.model"
+    />
+    <p class="text-sm lg:text-base">{{ scrollitem.model }}</p>
   </div>
 </template>
 
